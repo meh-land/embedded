@@ -1,9 +1,11 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "geometry_msgs/Twist.h"
 
-void chatterCallback(const std_msgs::String::ConstPtr& msg)
+void chatterCallback(const geometry_msgs::Twist::ConstPtr& Speed)
 {
-  ROS_INFO("I heard: [%s]",msg->data.c_str());
+  ROS_INFO("Linear Velocity: x = %f, y = %f, z = %f", Speed->linear.x, Speed->linear.y, Speed->linear.z);
+  ROS_INFO("Angular Velocity: x = %f, y = %f, z = %f", Speed->angular.x, Speed->angular.y, Speed->angular.z);
 }
 int main(int argc,char **argv)
 {
